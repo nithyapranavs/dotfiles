@@ -9,12 +9,13 @@ return {
     config = function()
         local telescope = require("telescope")
         local actions = require('telescope.actions')
+        local builtin = require("telescope.builtin")
         telescope.setup {
             defaults = {
                 initial_mode = 'normal',
                 layout_strategy = 'bottom_pane',
                 layout_config = {
-                    height = 0.4
+                    height = 0.5
                 },
 
                 mappings = {
@@ -37,6 +38,15 @@ return {
             }
         }
         telescope.load_extension("fzf");
+
+        -- keymaps
+
+        -- TODO add tree sitter of telescope
+        vim.keymap.set("n", "<C-F>", builtin.current_buffer_fuzzy_find, { desc = "Find string in currrent file" })
+        vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
+        vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Fuzzy find recent files" })
+        vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
+        vim.keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
     end,
 }
 

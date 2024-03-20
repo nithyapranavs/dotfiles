@@ -1,17 +1,50 @@
 return {
-    --{
-    --    "Mofiqul/vscode.nvim",
-    --    --"tanvirtin/monokai.nvim",
-    --    --"rose-pine/neovim",
-    --    --"bluz71/vim-moonfly-colors",
-    --    --"tomasr/molokai",
-    --    priority = 1000, -- make sure load before all other plugins
-    --    config = function()
-    --        vim.cmd([[colorscheme vscode]])
-    --        --vim.api.nvim_set_hl(0, "Normal", {bg="none"})
-    --        --vim.api.nvim_set_hl(0, "NormalFloat", {bg="none"})
-    --    end,
-    --},
+    {
+        "Mofiqul/vscode.nvim",
+        --"tanvirtin/monokai.nvim",
+        --"rose-pine/neovim",
+        --"bluz71/vim-moonfly-colors",
+        --"tomasr/molokai",
+        priority = 1000, -- make sure load before all other plugins
+        -- Lua:
+        -- For dark theme (neovim's default)
+        -- For light theme
+        config = function()
+            --local c = require('vscode.colors').get_colors()
+            require('vscode').setup({
+                -- Alternatively set style in setup
+                -- style = 'light'
+
+                -- Enable transparent background
+                transparent = false,
+
+                -- Enable italic comment
+                italic_comments = true,
+
+                -- Underline `@markup.link.*` variants
+                underline_links = true,
+
+                -- Disable nvim-tree background color
+                disable_nvimtree_bg = true,
+
+                -- Override colors (see ./lua/vscode/colors.lua -> on github)
+                color_overrides = {
+                    vscBack = '#151515',
+                },
+
+                -- Override highlight groups (see ./lua/vscode/theme.lua)
+                --group_overrides = {
+                --    -- this supports the same val table as vim.api.nvim_set_hl
+                --    -- use colors from this colorscheme by requiring vscode.colors!
+                --    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+                --}
+            })
+            require('vscode').load()
+            --vim.cmd([[colorscheme vscode]])
+            --vim.api.nvim_set_hl(0, "Normal", { bg = "#151515" })
+            --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#171717" })
+        end,
+    },
 
     -- tokyonight custom
     --    {
@@ -47,6 +80,17 @@ return {
     --                    colors.fg_gutter = fg_gutter
     --                    colors.fg_sidebar = fg_dark
     --                end,
+    --
+    --                on_highlights = function(hl)
+    --                    hl.TelescopeNormal = {
+    --                        bg = bg,
+    --                        fg = fg,
+    --                    }
+    --                    --hl.TelescopeBorder = {
+    --                    --    bg = bg_dark,
+    --                    --    fg = bg_dark,
+    --                    --}
+    --                end,
     --            })
     --            -- load the colorscheme here
     --            vim.cmd([[colorscheme tokyonight]])
@@ -55,56 +99,56 @@ return {
     --    },
 
     -- monokai pro custom
-    {
-        "loctvl842/monokai-pro.nvim",
-        priority = 1000, -- make sure to load this before all the other start plugins
-
-        config = function()
-            require("monokai-pro").setup({
-                transparent_background = true,
-                terminal_colors = true,
-                devicons = true, -- highlight the icons of `nvim-web-devicons`
-                styles = {
-                    comment = { italic = true },
-                    keyword = { italic = true },       -- any other keyword
-                    type = { italic = true },          -- (preferred) int, long, char, etc
-                    storageclass = { italic = true },  -- static, register, volatile, etc
-                    structure = { italic = true },     -- struct, union, enum, etc
-                    parameter = { italic = true },     -- parameter pass in function
-                    annotation = { italic = true },
-                    tag_attribute = { italic = true }, -- attribute of tag in reactjs
-                },
-                filter = "pro",                        -- classic | octagon | pro | machine | ristretto | spectrum
-                -- Enable this will disable filter option
-                day_night = {
-                    enable = false,            -- turn off by default
-                    day_filter = "pro",        -- classic | octagon | pro | machine | ristretto | spectrum
-                    night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
-                },
-                inc_search = "background",     -- underline | background
-                background_clear = {
-                    "float_win",
-                    -- "toggleterm",
-                    "telescope",
-                    -- "which-key",
-                    --"renamer",
-                    --"notify",
-                    "nvim-tree",
-                    -- "neo-tree",
-                    -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
-                }, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
-                plugins = {
-                    bufferline = {
-                        underline_selected = false,
-                        underline_visible = false,
-                    },
-                    indent_blankline = {
-                        context_highlight = "default", -- default | pro
-                        context_start_underline = false,
-                    },
-                },
-            })
-            vim.cmd([[colorscheme monokai-pro]])
-        end,
-    },
+    --    {
+    --        "loctvl842/monokai-pro.nvim",
+    --        priority = 1000, -- make sure to load this before all the other start plugins
+    --
+    --        config = function()
+    --            require("monokai-pro").setup({
+    --                transparent_background = true,
+    --                terminal_colors = true,
+    --                devicons = true, -- highlight the icons of `nvim-web-devicons`
+    --                styles = {
+    --                    comment = { italic = true },
+    --                    keyword = { italic = true },       -- any other keyword
+    --                    type = { italic = true },          -- (preferred) int, long, char, etc
+    --                    storageclass = { italic = true },  -- static, register, volatile, etc
+    --                    structure = { italic = true },     -- struct, union, enum, etc
+    --                    parameter = { italic = true },     -- parameter pass in function
+    --                    annotation = { italic = true },
+    --                    tag_attribute = { italic = true }, -- attribute of tag in reactjs
+    --                },
+    --                filter = "pro",                        -- classic | octagon | pro | machine | ristretto | spectrum
+    --                -- Enable this will disable filter option
+    --                day_night = {
+    --                    enable = false,            -- turn off by default
+    --                    day_filter = "pro",        -- classic | octagon | pro | machine | ristretto | spectrum
+    --                    night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+    --                },
+    --                inc_search = "background",     -- underline | background
+    --                background_clear = {
+    --                    "float_win",
+    --                    -- "toggleterm",
+    --                    "telescope",
+    --                    -- "which-key",
+    --                    --"renamer",
+    --                    --"notify",
+    --                    "nvim-tree",
+    --                    -- "neo-tree",
+    --                    -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+    --                }, -- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
+    --                plugins = {
+    --                    bufferline = {
+    --                        underline_selected = false,
+    --                        underline_visible = false,
+    --                    },
+    --                    indent_blankline = {
+    --                        context_highlight = "default", -- default | pro
+    --                        context_start_underline = false,
+    --                    },
+    --                },
+    --            })
+    --            vim.cmd([[colorscheme monokai-pro]])
+    --        end,
+    --    },
 }

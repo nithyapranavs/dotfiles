@@ -1,19 +1,20 @@
--- set leader key to space
+-- set leader k y qr sjace
 vim.g.mapleader = " "
 
--- map for nvim tree
-local keymap = vim
-    .keymap                                                                                                         -- for conciseness
+local keymap = vim.keymap                                                                                                             -- for conciseness
 
+-- my custom
+-- for write and save
+keymap.set("n","<F5>", "<cmd>w<CR>", {desc = "writes the file"})
+keymap.set("n","<F8>", "<cmd>q<CR>", {desc = "quit the file"})
+
+
+-- map for nvim-tree
 keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })                         -- toggle file explorer
 keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
 keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })                     -- collapse file explorer
 keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })                       -- refresh file explorer
 
 -- map for telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+-- TODO add tree sitter of telescope
 
--- map for undo tree
