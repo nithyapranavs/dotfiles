@@ -39,7 +39,7 @@ return {
         end
 
         vim.keymap.set("n", "<leader>hh", function() toggle_telescope(harpoon:list()) end,
-            { desc = "Open harpoon window" })
+            { desc = "Open harpoon window in telescope" })
     end,
 
 }

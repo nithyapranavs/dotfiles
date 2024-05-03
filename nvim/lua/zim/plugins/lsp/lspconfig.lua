@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    lazy = true,
+    event = { "BufReadPre", "BufNewFile"},
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
     },
@@ -70,6 +71,12 @@ return {
             on_attach = on_attach,
         })
 
+        -- configure bash server
+        lspconfig["bashls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = {"sh", "zsh", "bash"},
+        })
 
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({

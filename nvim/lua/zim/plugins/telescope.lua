@@ -15,7 +15,7 @@ return {
                 initial_mode = 'normal',
                 layout_strategy = 'bottom_pane',
                 layout_config = {
-                    height = 0.5
+                    height = 0.45
                 },
 
                 mappings = {
@@ -47,6 +47,7 @@ return {
         vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Fuzzy find recent files" })
         vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
         vim.keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
+        vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Show all current buffer files" })
     end,
 }
 

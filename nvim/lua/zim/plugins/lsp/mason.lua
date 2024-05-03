@@ -16,7 +16,8 @@ return {
                 "pyright",
                 "hls",
                 "clangd",
-                "lua_ls"
+                "lua_ls",
+                "bashls"
             },
             automatic_installation = true,
         })
