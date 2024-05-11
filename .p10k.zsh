@@ -36,7 +36,7 @@
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
-    newline                 # \n
+    #newline                 # \n
     prompt_char             # prompt symbol
   )
 
@@ -167,7 +167,8 @@
   # the number of prompt lines. You'll probably want to set POWERLEVEL9K_SHOW_RULER=false
   # if using this. You might also like POWERLEVEL9K_PROMPT_ADD_NEWLINE=false for more compact
   # prompt.
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=' '
+  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false # remove this if using multi-line prompt
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR=''
   if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
     # The color of the filler.
     typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=242
@@ -210,7 +211,7 @@
   typeset -g POWERLEVEL9K_DIR_FOREGROUND="blue"
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY= #truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
