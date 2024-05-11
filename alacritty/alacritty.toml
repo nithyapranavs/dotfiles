@@ -1,0 +1,68 @@
+import = [
+    "~/.config/alacritty/themes/themes/iterm.toml"
+]
+[ env ]
+    TERM = "xterm-256color"
+
+[colors.primary]
+    background = '#0C0C0C'
+    foreground = '#c7c7c7'
+
+## Normal colors
+[colors.normal]
+    green   = '#00cd00'
+    yellow = '#C7C400'
+    cyan = '#00C6C7'
+## Bright colors
+[colors.bright]
+    green = '#00B14A'
+    yellow = '#BFBC4C'
+    cyan = '#49C1C2'
+[window]
+    decorations = "None"
+    option_as_alt="Both"
+
+[font]
+    size = 14.0
+    normal = { family = "SFMono Nerd Font", style = "Regular"}
+
+# following keybinding from https://github.com/joshmedeski/dotfiles/blob/main/.config/alacritty/alacritty.toml
+[[keyboard.bindings]]
+chars = "\u0001c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00011"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00012"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00013"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00014"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00015"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00016"
+key = "Key6"
+mods = "Command"
