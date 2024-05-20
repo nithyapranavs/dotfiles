@@ -11,7 +11,7 @@ keymap.set("n", "<F7>", "<cmd>update<CR>", { desc = "writes the file" })
 keymap.set("n", "<F3>", "<cmd>q<CR>", { desc = "quit the file" })
 
 -- netrw
-keymap.set("n", "<leader>ee", "<cmd>Explore<CR>", { desc = "open netrw" })
+keymap.set("n", "<leader>ee", "<cmd>Lex<CR>", { desc = "open netrw" })
 
 -- Visual --
 -- Stay in indent mode
