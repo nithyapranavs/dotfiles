@@ -6,8 +6,6 @@
 # no beep
 setopt nobeep 
 
-
-
 ##google search and ddg search
 ##usage google query or ddg query
 function ddg {
