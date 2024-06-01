@@ -6,6 +6,44 @@
 # no beep
 setopt nobeep 
 
+
+#bindkey -v # enables vim mode
+# -------------------------------------------------------------------
+# [alias]
+## shortcuts
+alias c="cat"
+alias b="bat"
+alias v='nvim'
+alias cln="clear;lfetch"
+alias cl="clear"
+alias py="python"
+
+alias ls='ls -G' # for color ls
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ll -a"
+# using exa
+alias ll="exa -l"
+alias lla="exa -la"
+
+alias tmux="tmux -u"
+
+
+# [man page coloring]
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# [my functions]
+
+mkcd() { # creates the directory and cd into it
+  mkdir -p "$1" && cd "$1"
+}
+
 ##google search and ddg search
 ##usage google query or ddg query
 function ddg {
@@ -20,54 +58,13 @@ function google {
     open "$query"
 }
 
-#bindkey -v # enables vim mode
-# -------------------------------------------------------------------
-# [alias]
-## shortcuts
-alias c="cat"
-alias b="bat"
-alias v='nvim'
-alias cln="clear;lfetch"
-alias cl="clear"
-alias py="python"
-
-
-# colors
-alias ls='ls -G'
-alias ll="ls -l"
-alias la="ls -a"
-alias lla="ll -a"
-# using exa
-alias ll="exa -l"
-alias lla="exa -la"
-
-alias tmux="tmux -u"
-
-# -------------------------------------------------------------------
-
-
-# >>> my functions <<<
-
-mkcd() { # creates the directory and cd into it
-  mkdir -p "$1" && cd "$1"
-}
-
-# -------------------------------------------------------------------
-# man page coloring
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-# -------------------------------------------------------------------
 
 #source of plugins
 source ~/.zsh_plug/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # for syntax highlighting
+source ~/.zsh_plug/fzf-tab/fzf-tab.plugin.zsh # autocomplete with fzf plugin
 
 
-## >>> fzf <<< ##
+# [fzf] 
 
 # fzf setups
 
@@ -78,9 +75,11 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix"
 # OSX
     [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ] && source /usr/local/opt/fzf/shell/key-bindings.zsh
     [ -f /usr/local/opt/fzf/shell/completion.zsh ] && source /usr/local/opt/fzf/shell/completion.zsh
+# ubuntu
+    [ -f /usr/share/doc/fzf/examples/key-bindings.zsh   ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+    [ -f /usr/share/doc/fzf/examples/completion.zsh     ] && source /usr/share/doc/fzf/examples/completion.zsh
 
 autoload -U compinit; compinit
-source ~/.zsh_plug/fzf-tab/fzf-tab.plugin.zsh # autocomplete with fzf plugin
 
 bindkey '^g' fzf-cd-widget # ALT-C - cd into the selected directory
    

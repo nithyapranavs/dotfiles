@@ -1,4 +1,5 @@
 format = """
+$username\
 $directory\
 $custom\
 $git_branch\
@@ -11,12 +12,16 @@ $character\
 [fill]
 symbol = " "
 
+[username]
+show_always = true
+format = "[$user:](red)"
+
 [directory]
 truncation_length = 1
 style = "blue"
 read_only = " "
 home_symbol = 'home'
-format = '[dir:](red)\([$path]($style)\)' 
+format = '\([$path]($style)\)' 
 
 [character]
 success_symbol = "[ ✗](yellow)"
@@ -29,11 +34,10 @@ style = "green"
 
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
-style = "yellow"
+style = "purple"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
 
 
 [cmd_duration]
